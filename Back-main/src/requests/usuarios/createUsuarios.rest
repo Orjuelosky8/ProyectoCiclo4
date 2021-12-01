@@ -1,0 +1,9 @@
+POST http://localhost:4000/api/usuario/create/
+
+content-type: application/json
+{
+    "nombre" : "asd",
+    "correo" : "asd@gmail.com",
+    "contraseña" : "asd",
+    "rol" : "asd"
+}s

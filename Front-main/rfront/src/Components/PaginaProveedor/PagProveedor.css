@@ -1,0 +1,23 @@
+.bar-container {
+    margin: 10px 2%;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+}
+
+.main-container {
+    display: flex;
+    margin: 0 2%;
+}
+
+/* aside {
+    background-color: aquamarine;
+    width: 30%;
+}
+main {
+    background-color: aqua;
+    width: 60%;
+} */

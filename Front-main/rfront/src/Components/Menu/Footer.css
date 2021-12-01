@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+} 
+
+.Footer{
+    background-color:#00303F;
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    margin-left: 0;
+    box-shadow: DARKblue 0px -4px 25px;
+}

@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "expressjs": "^1.0.1",
+    "mongodb": "^4.2.1",
+    "node": "^17.1.0"
+  }
+}

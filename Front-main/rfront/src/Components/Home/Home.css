@@ -1,0 +1,79 @@
+
+.menu-p{
+    opacity: 85%;
+    box-shadow: none;
+}
+
+
+
+.bg-foto-mapa{
+    /*background-image: '@/assets/mapa-bg.png';*/
+    /* background-image: url("../../assets/Home/mapa-bg.png"); */
+    background-position: center;
+    background-size: cover;
+    block-size: 325px;
+}
+.title-p{
+    padding-top: 35px;
+    padding-bottom: 10px;
+}
+
+.bg-para-mapa{
+    background-color:#00303F;
+    opacity: 85%;
+    block-size: 325px;
+}
+
+.seccion-lideres{
+    background-color:#4ad1fa9a ;
+    padding: 40px;
+}
+
+
+.seccion2{
+    background-color: #080a0a;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.seccion3{
+    margin: 15px;
+    padding: 15px;
+}
+
+.logo-principal{
+    padding-top: 50px;
+}
+
+.contenido-header{
+    padding-top: 70px;
+}
+
+/* .seccion-empresas{
+    background-color:#00303F ;
+    padding: 40px;
+} */
+
+.seccion-about-us{
+    background-color:#ffffff ;
+    padding: 40px;
+}
+
+.items-e{
+    display: block;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.items-empresa{
+    color: #ffffff ;
+}
+
+.More{
+    border: none;
+    font-size:14px;
+    font-family: cursive;
+}
+
+

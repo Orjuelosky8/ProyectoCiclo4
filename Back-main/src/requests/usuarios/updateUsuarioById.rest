@@ -1,0 +1,9 @@
+PUT http://localhost:4000/api/usuario/id/619c9e6430de37163bf71adb
+
+content-type: application/json
+{
+    "nombre" : "rasd",
+    "correo" : "asdfrg@gmail.com",
+    "contraseña" : "asdfr",
+    "rol" : "masd"
+}

@@ -1,0 +1,28 @@
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+
+export default function ButtonAppBar() {
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static" style={{ background: '#00303F' }}>
+        <Toolbar>
+          
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Descubriendo +
+          </Typography>
+          <Button color="inherit">Home</Button>
+          <p> | </p>
+          <Button color="inherit">Mapa</Button>
+          <p> | </p>
+          <Button color="inherit">Proveedores</Button>
+          <p> | </p>
+          <Button color="inherit">Mi cuenta</Button>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
+}

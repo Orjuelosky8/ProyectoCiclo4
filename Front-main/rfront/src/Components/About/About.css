@@ -1,0 +1,31 @@
+.container-about {
+	margin-left: 20%;
+	margin-top: 10%;
+	width: 60%;
+    height: auto;
+	border: 1px solid red;
+	border-radius: 5%;
+	box-shadow: 0 0 20px darkgreen;
+	background: beige;
+}
+.card-about{
+    padding: 12px;
+    border-bottom: 1px dotted black;
+}
+.card-about-last{
+    border-bottom: none;
+}
+.subtitles-about{
+    color: blue;
+    font-family: cursive;
+    font-size: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.parrafos-about{
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+    color: orange;
+}

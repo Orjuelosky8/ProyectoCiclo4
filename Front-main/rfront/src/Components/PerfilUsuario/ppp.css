@@ -1,0 +1,36 @@
+.conttt{
+    margin: 50px;
+}
+.descripcion{
+    background: #f2f2f2;
+    color: #004F67;
+}
+p, h2{
+    text-align: left;
+}
+.boxbtn{
+    background: #f2f2f2;
+}
+.divnavperf{
+    padding: 10% 5% 5% 5%;
+    color: #00303F;
+}
+.bordescardperf{
+border-radius: 5%;
+}
+.perf11{
+    background: #CAE4DB;
+    color: #00303F;
+}
+.btnperf{
+    background: #f2f2f2;
+}
+.texx{
+    color: #004F67;
+}
+.txtdes{
+    color: #00303F;
+}
+.padc{
+    padding-left: 2%;
+}
