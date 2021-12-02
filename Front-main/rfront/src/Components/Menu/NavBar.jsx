@@ -4,6 +4,7 @@ import logoheader from "../../assets/Home/logoheader.png";
 import "./NavBar.css";
 
 export default function NavBar() {
+  
   return (
     <div>
       <Navbar className="nav" fixed="top" variant="dark" expand="lg">
@@ -18,7 +19,7 @@ export default function NavBar() {
               <Nav.Link href="Explorar">Explorar</Nav.Link>
               <Nav.Link href="About">Acerca de Nosotros</Nav.Link>
               <Nav.Link href="Team">Equipo</Nav.Link>
-              <Nav.Link href="Ingresar">Login</Nav.Link>
+              <Nav.Link href="Logout">Salir</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

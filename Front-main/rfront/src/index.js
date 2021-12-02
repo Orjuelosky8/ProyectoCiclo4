@@ -4,6 +4,7 @@ import App from './App.jsx';
 import {BrowserRouter} from 'react-router-dom';
 import SignIn from './Components/CuentaUsuario/Ingresar'
 import SignUp from './Components/CuentaUsuario/Registrar'
+import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,3 +15,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+serviceWorker.unregister();

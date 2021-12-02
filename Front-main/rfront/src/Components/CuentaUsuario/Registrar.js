@@ -1,139 +1,162 @@
-import * as React from "react";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { registerUser } from "../../actions/authActions";
+import classnames from "classnames";
 import "./logform.css";
 
-const theme = createTheme();
-
-/*
-const validarPassword2 = () => {
-  if (password.campo.lenght > 0) {
-    if (password.campo !== password2.campo) {
-      alert("Las contraseñas no son iguales");      
-    }
-    else
-      console.log("Las contraseñas son iguales");
+class Registrar extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      email: "",
+      password: "",
+      password2: "",
+      errors: {},
+    };
   }
-}*/
 
-export default function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+  componentDidMount() {
+    // If logged in and user navigates to Register page, should redirect them to dashboard
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors,
+      });
+    }
+  }
+
+  onChange = (e) => {
+    this.setState({ [e.target.id]: e.target.value });
   };
 
+  onSubmit = (e) => {
+    e.preventDefault();
+
+    const newUser = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      password2: this.state.password2,
+    };
+
+    this.props.registerUser(newUser, this.props.history);
+  };
+
+  render() {
+    const { errors } = this.state;
+
   return (
-    <ThemeProvider theme={theme}>
-      <Container className="form-container" component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            paddingTop: 10,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Crear cuenta
-          </Typography>
-          <form
-            name="f1"
-            component="form"
-            noValidate
-            onSubmit={handleSubmit}
-            //onSubmit={checkPassword()}
-            sx={{ mt: 3 }}
-          >
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="Nombre"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Correo Electronico"
-                  name="email"
-                  autoComplete="email"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Contraseña"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  className="password2"
-                  label="Confirmar Contraseña"
-                  type="password"
-                  id="password2"
-                  autoComplete="new-password"
-                  //funcion={validarPassword2}
-                />
-              </Grid>
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              //onClick={verificarPasswords()}
-            >
-              REGISTRAR
-            </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link href="/ingresar" variant="body2">
-                  ¿Ya tienes una cuenta? Inicia Sesión
-                </Link>
-              </Grid>
-            </Grid>
+  <div className="container">
+      <div className="row">
+        <div className="col s8 offset-s2">
+          <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+            <h4>
+              <b>Registrarse</b> a continuación...
+            </h4>
+            <p className="grey-text text-darken-1">
+              Tiene una cuenta? <Link to="/ingresar">Ingresar</Link>
+            </p>
+          </div>
+          <form noValidate onSubmit={this.onSubmit}>
+            <div className="input-field col s12">
+              <input
+                onChange={this.onChange}
+                value={this.state.name}
+                error={errors.name}
+                id="name"
+                type="text"
+                className={classnames("", {
+                  invalid: errors.name,
+                })}
+              />
+              <label htmlFor="name">Nombre</label>
+              <span className="red-text">{errors.name}</span>
+            </div>
+            <div className="input-field col s12">
+              <input
+                onChange={this.onChange}
+                value={this.state.email}
+                error={errors.email}
+                id="email"
+                type="email"
+                className={classnames("", {
+                  invalid: errors.email,
+                })}
+              />
+              <label htmlFor="email">Email</label>
+              <span className="red-text">{errors.email}</span>
+            </div>
+            <div className="input-field col s12">
+              <input
+                onChange={this.onChange}
+                value={this.state.password}
+                error={errors.password}
+                id="password"
+                type="password"
+                className={classnames("", {
+                  invalid: errors.password,
+                })}
+              />
+              <label htmlFor="password">Contraseña</label>
+              <span className="red-text">{errors.password}</span>
+            </div>
+            <div className="input-field col s12">
+              <input
+                onChange={this.onChange}
+                value={this.state.password2}
+                error={errors.password2}
+                id="password2"
+                type="password"
+                className={classnames("", {
+                  invalid: errors.password2,
+                })}
+              />
+              <label htmlFor="password2">Confirmar contraseña</label>
+              <span className="red-text">{errors.password2}</span>
+            </div>
+            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+              <button
+                style={{
+                  width: "150px",
+                  borderRadius: "3px",
+                  letterSpacing: "1.5px",
+                  marginTop: "1rem",
+                }}
+                type="submit"
+                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+              >
+                Registrar
+              </button>
+            </div>
           </form>
-        </Box>
-      </Container>
-    </ThemeProvider>
+        </div>
+      </div>
+    </div>
   );
 }
+}
+
+Registrar.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+  errors: state.errors,
+});
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(withRouter(Registrar));
+

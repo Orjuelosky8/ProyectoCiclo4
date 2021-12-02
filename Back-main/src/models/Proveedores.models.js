@@ -18,4 +18,4 @@ const ProveedorSchema = new Schema({
   "productos": [ {type : Object} ]
 })
 
-module.exports = mongoose.model('proveedores',ProveedorSchema)
+module.exports = mongoose.model('proveedores',ProveedorSchema) 

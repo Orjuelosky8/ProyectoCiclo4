@@ -1,3 +1,7 @@
 .form-container{
     min-height: calc(100vh - 40px);
 }
+
+.container{
+    margin: 5%;
+}

@@ -54,12 +54,22 @@ export default function ButtonAppBar() {
             </Link>
           </Button>
 
+
           <Button color="inherit" className="btnNav">
-            <Link to="/Explore" className="btnin">
+            <Link to="/create" className="btnin">
+              Create Place
+            </Link>
+          </Button>
+          <Button color="inherit" className="btnNav">
+            <Link to="/user" className="btnin">
+              Crear User
+            </Link>
+          </Button>
+          <Button color="inherit" className="btnNav">
+            <Link to="/places" className="btnin">
               Explorar
             </Link>
           </Button>
-
           <Button color="inherit" className="btnNav">
             <Link to="/About" className="btnin">
               Acerca de Nosotros
@@ -72,7 +82,7 @@ export default function ButtonAppBar() {
           </Button>
 
           <Button color="inherit" className="btnNav">
-            <Link to="/" className="btnin">
+            <Link to="/Ingresar" className="btnin">
               Salir
             </Link>
           </Button>
