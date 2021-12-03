@@ -15,16 +15,20 @@ class Login extends Component {
     };
   }
 
-  componentDidMount() {
-    // If logged in and user navigates to Login page, should redirect them to dashboard
-    if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
-    }
+  async componentDidMount() {
+    this.getLogin();
   }
+
+  getLogin = async () => {
+    const res = await axios.get("http://localhost:4000/api/ingresar");
+    this.setState({
+      notes: res.data,
+    });
+  };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/Inicio");
     }
 
     if (nextProps.errors) {

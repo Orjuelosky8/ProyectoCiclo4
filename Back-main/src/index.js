@@ -1,5 +1,4 @@
 //Requerimos las dependencias necesarias
-const express = require("express");
 // const app = express();
 const morgan = require("morgan");
 const cors = require("cors");
@@ -16,7 +15,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors({ origen: "*" }));
 
-app.use("/api", require("./routes/users"));
 
 app.listen(app.get("Port"), function () {
   console.log("listening on port " + app.get("Port"));

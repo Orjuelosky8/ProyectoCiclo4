@@ -34,11 +34,11 @@ module.exports = function validateRegisterInput(data) {
   if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
     errors.password = "La contraseña debe tener al menos 6 caracteres";
   }
-
+  
   if (!Validator.equals(data.password, data.password2)) {
     errors.password2 = "Las contraseñas deben coincidir";
   }
-
+  
   return {
     errors,
     isValid: isEmpty(errors),

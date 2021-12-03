@@ -1,6 +1,7 @@
 import React, {Switch} from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ButtonAppBar from "./Components/Menu/Nav";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
@@ -66,19 +67,20 @@ export default class App extends React.Component {
     this.state({
       logged: false,
     })
-  }*/
+  }*//*
   onLogoutClick = (e) => {
     e.preventDefault();
     this.props.this.state.logged = false;
-  };
+  };*/
 
   Login() {
     return(
       <Provider store={store}>
         <Router>
-          <Route path="/" exact component={Ingresar} onTryLogin = {this.updateState}/>
+          {/* <Route path="*" exact component={Ingresar} onTryLogin = {this.updateState}/> */}
           <Route path="/Registrar" exact component={Registrar}/>
           <Route path="/Ingresar" exact component={Ingresar} onTryLogin = {this.updateState}/>
+          <Route path="/" exact component={Ingresar} onTryLogin = {this.updateState}/>
           <Footer />
         </Router>
       </Provider>
@@ -95,12 +97,13 @@ export default class App extends React.Component {
           <Route path="/Team" exact component={Team} />
           <Route path="/About" exact component={About} />
           <Route path="/Explore" exact component={Explorar}/>
-          <Route path="/Ingresar" exact component={Ingresar} /*onClick={this.onLogoutClick} /*onTryLogin={this.setState({logged:true})}*/ />
+          <Route path="/Ingresar" exact component={Ingresar} onClick={this.onLogoutClick} /*onTryLogin={this.setState({logged:true})}*/ />
           <Route path="/Registrar" exact component={Registrar}/>
           <Route path="/places" component={NotesList} />
           <Route path="/edit/:id" component={CreateNote} />
           <Route path="/create" component={CreateNote} />
           <Route path="/user" component={CreateUser} />
+          <Route path="/logout" component={Ingresar} />
           <Footer />
         </Router>
       </Provider>

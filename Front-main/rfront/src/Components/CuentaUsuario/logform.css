@@ -5,3 +5,12 @@
 .container{
     margin: 5%;
 }
+
+.container-logs{
+    background-color: rgb(255, 216, 145);
+}
+
+.btn-bluee{
+    background-color:rgb(46, 154, 255);
+    margin-bottom: 10px;
+}

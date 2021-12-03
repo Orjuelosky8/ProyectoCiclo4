@@ -100,13 +100,6 @@ export default function Section1() {
               etc.
             </Typography>
 
-            <Stack direction="row" spacing={1} mt>
-              <Button id="button-empezar" size="medium" variant="outlined">
-                <Link to="/Proveedores" className="btnin">
-                  Ver más...
-                </Link>
-              </Button>
-            </Stack>
           </Stack>
 
           {/* <Stack>
@@ -180,16 +173,7 @@ export default function Section1() {
               etc.
             </Typography>
 
-            <Stack direction="row" spacing={1} mt>
-              {/* <Button id="button-empezar" size='medium' variant="outlined">
-                            <Link to={{pathname:'/Mapa',state}} className="btnin">VER MAPA</Link>
-                        </Button> */}
-              <Button id="button-empezar" size="medium" variant="outlined">
-                <Link to="/Proveedores" className="btnin">
-                  Ver más...
-                </Link>
-              </Button>
-            </Stack>
+
 
             {/* <Typography fontSize="24" align="left" component="div" mb="0px">
               Guardar mis proveedores favoritos

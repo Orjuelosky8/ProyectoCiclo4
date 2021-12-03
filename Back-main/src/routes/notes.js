@@ -2,6 +2,7 @@ const { Router } = require('express');
 const router = Router();
 
 const { getNotes, createNote, getNote, deleteNote, updateNote } = require('../controllers/notes.controller');
+//const validateLoginInput = require("../validation/ingresar");
 
 router.route('/')
     .get(getNotes)

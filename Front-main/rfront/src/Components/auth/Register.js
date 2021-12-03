@@ -16,13 +16,16 @@ class Register extends Component {
       errors: {},
     };
   }
-
-  componentDidMount() {
-    // If logged in and user navigates to Register page, should redirect them to dashboard
-    if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
-    }
-  }
+  
+  onSubmit = async (e) => {
+    e.preventDefault();
+    const url = "http://localhost:4000";
+    await axios.post(url + "/api/registrar", {
+      mail: this.state.email,
+      password: this.state.password,
+    });
+    this.setState({ mail: "" });
+  };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {

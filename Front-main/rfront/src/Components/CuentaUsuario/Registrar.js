@@ -21,7 +21,7 @@ class Registrar extends Component {
   componentDidMount() {
     // If logged in and user navigates to Register page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/Inicio");
     }
   }
 
@@ -55,8 +55,8 @@ class Registrar extends Component {
 
   return (
   <div className="container">
-      <div className="row">
-        <div className="col s8 offset-s2">
+      <div className="row container-logs">
+        <div className="col s8 offset-s2 container-logss">
           <div className="col s12" style={{ paddingLeft: "11.250px" }}>
             <h4>
               <b>Registrarse</b> a continuación...
@@ -131,7 +131,7 @@ class Registrar extends Component {
                   marginTop: "1rem",
                 }}
                 type="submit"
-                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                className="btn btn-large waves-effect waves-light hoverable blue accent-3 btn-bluee"
               >
                 Registrar
               </button>

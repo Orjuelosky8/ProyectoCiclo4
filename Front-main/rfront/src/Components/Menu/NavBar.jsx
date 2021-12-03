@@ -19,7 +19,7 @@ export default function NavBar() {
               <Nav.Link href="Explorar">Explorar</Nav.Link>
               <Nav.Link href="About">Acerca de Nosotros</Nav.Link>
               <Nav.Link href="Team">Equipo</Nav.Link>
-              <Nav.Link href="Logout">Salir</Nav.Link>
+              <Nav.Link href="logout">Salir</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

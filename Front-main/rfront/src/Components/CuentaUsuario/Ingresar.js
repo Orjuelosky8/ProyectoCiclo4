@@ -20,13 +20,13 @@ class Login extends Component {
   componentDidMount() {
     // If logged in and user navigates to Login page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/Inicio");
     }
   }
-
+  
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/Inicio");
     }
 
     if (nextProps.errors) {
@@ -55,7 +55,7 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="container">
+      <div className="container container-logs">
         <div style={{ marginTop: "4rem" }} className="row">
           <div className="col s8 offset-s2">
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
@@ -110,7 +110,7 @@ class Login extends Component {
                     marginTop: "1rem",
                   }}
                   type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                  className="btn btn-bluee btn-large waves-effect waves-light hoverable blue accent-3"
                 >
                   Acceder
                 </button>

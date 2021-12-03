@@ -13,6 +13,7 @@ app.use(express.json());
 // routes
 app.use('/api/notes', require('./routes/notes'));
 app.use('/api/users', require('./routes/users'));
-app.use('/api/registrations', require('./routes/registrations'));
+app.use('/api/registrar', require('./routes/registrations'));
+app.use('/api/ingresar', require('./routes/registration'));
 
 module.exports = app;

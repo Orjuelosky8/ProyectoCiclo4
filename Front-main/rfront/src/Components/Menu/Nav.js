@@ -10,6 +10,8 @@ import Stack from "@mui/material/Stack";
 import "./Nav.css";
 import { Link } from "react-router-dom";
 import logoheader from "../../assets/Home/logoheader.png";
+import { logoutUser } from "../../actions/authActions";
+
 
 export default function ButtonAppBar() {
   const [state, setstate] = useState({
@@ -81,8 +83,8 @@ export default function ButtonAppBar() {
             </Link>
           </Button>
 
-          <Button color="inherit" className="btnNav">
-            <Link to="/Ingresar" className="btnin">
+          <Button color="inherit" className="btnNav" onclick={logoutUser}>
+            <Link to="/logout" className="btnin" >
               Salir
             </Link>
           </Button>
