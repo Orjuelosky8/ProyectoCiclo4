@@ -15,5 +15,6 @@ app.use('/api/notes', require('./routes/notes'));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/registrar', require('./routes/registrations'));
 app.use('/api/ingresar', require('./routes/registration'));
+//app.use('/api/logout', require('./routes/logout'));
 
 module.exports = app;

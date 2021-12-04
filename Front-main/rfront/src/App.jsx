@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 
-import { setCurrentUser, logoutUser } from "./actions/authActions";
+import { setCurrentUser, logoutUser } from "./../src/actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
@@ -27,6 +27,7 @@ import Navigation from './Components/Crud/Navigation'
 import NotesList from './Components/Crud/NotesList'
 import CreateNote from './Components/Crud/CreateNote'
 import CreateUser from './Components/Crud/CreateUser'
+import PrivateRoute from "./../src/Components/private-route/PrivateRoute";
 
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -37,28 +38,28 @@ if (localStorage.jwtToken) {
   // Set user and isAuthenticated
   store.dispatch(setCurrentUser(decoded));
   // Check for expired token
-  const currentTime = Date.now() / 1000; // to get in milliseconds
+  const currentTime = Date.now() / 10000; // to get in milliseconds
   if (decoded.exp < currentTime) {
     // Logout user
     store.dispatch(logoutUser());
-
+    console.log("User logged out");
     // Redirect to login
-    window.location.href = "./login";
+    window.location.href = "./ingresar";
   }
 }
 export default class App extends React.Component {
-  constructor(props) {
+  /*constructor(props) {
     super(props);
       this.state = {
         logged: false,
         username: "",
       };
-    }
+    }*/
 
   /*async updateState(logged, username) {
     alert("jhsdjads");
     await this.setState({ 
-      logged: false,
+      logged: true,
       username: "",
     });
   }
@@ -91,14 +92,15 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <Router>
+          <Route path="/Ingresar" exact component={Ingresar} /*onClick={this.onLogoutClick} /*onTryLogin={this.setState({logged:true})}*/ />
+          <Route path="/Registrar" exact component={Registrar}/>
           <ButtonAppBar />
+          <Route path="/" exact component={Home} />
           <Route path="/" exact component={Home} />
           <Route path="/Inicio" exact component={Home} />
           <Route path="/Team" exact component={Team} />
           <Route path="/About" exact component={About} />
           <Route path="/Explore" exact component={Explorar}/>
-          <Route path="/Ingresar" exact component={Ingresar} onClick={this.onLogoutClick} /*onTryLogin={this.setState({logged:true})}*/ />
-          <Route path="/Registrar" exact component={Registrar}/>
           <Route path="/places" component={NotesList} />
           <Route path="/edit/:id" component={CreateNote} />
           <Route path="/create" component={CreateNote} />

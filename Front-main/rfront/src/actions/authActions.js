@@ -59,7 +59,9 @@ export const setUserLoading = () => {
 
 // Log user out
 export const logoutUser = () => dispatch => {
+  //axios.post("http://localhost:4000/api/logout")
   // Remove token from local storage
+  console.log("Sign out.");
   localStorage.removeItem("jwtToken");
   // Remove auth header for future requests
   setAuthToken(false);
