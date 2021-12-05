@@ -1,30 +1,21 @@
-import React, {Switch} from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ButtonAppBar from "./Components/Menu/Nav";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
-
 import { setCurrentUser, logoutUser } from "./../src/actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
-
 import Team from "./Components/Team/Team.jsx";
 import Registrar from "./Components/CuentaUsuario/Registrar";
 import Ingresar from "./Components/CuentaUsuario/Ingresar";
 import Home from "./Components/Home/Home";
 import About from "./Components/About/About.jsx";
 import Recommendations from "./Components/Recommendations/Recomendaciones"
-import Mapa from "./Components/Mapa/Mapa.jsx";
-import VistaPerfil from "./Components/PerfilUsuario/pruebasmui";
+import "./Components/Mapa/Map.css";
 import Footer from "./Components/Menu/Footer.jsx";
-import { Redirect } from "react-router";
-import NavBar from "./Components/Menu/NavBar";
 import Explorar from "./Components/Explore/Explorar.jsx"
-import PagProveedor from "./Components/PaginaProveedor/PagProveedor";
-import PublicarNegocio from "./Components/PublicarNegocio/PublicarNegocio";
-
 import NotesList from './Components/Crud/NotesList'
 import CreateNote from './Components/Crud/CreateNote'
 import CreateUser from './Components/Crud/CreateUser'

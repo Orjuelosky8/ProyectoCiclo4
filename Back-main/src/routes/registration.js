@@ -11,13 +11,6 @@ const validateLoginInput = require("./../validation/ingresar");
 // Load User model
 const User = require("./../models/User2");
 
-// @route POST api/users/register
-// @desc Register user
-// @access Public
-
-// @route POST api/users/login
-// @desc Login user and return JWT token
-// @access Public
 
 router.get('/', (req, res, next) => {
   res.render('ingresar');
