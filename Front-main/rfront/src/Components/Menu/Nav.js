@@ -14,7 +14,7 @@ import "./Nav.css";
 import { Link } from "react-router-dom";
 import logoheader from "../../assets/Home/logoheader.png";
 import { logoutUser } from "../../actions/authActions";
-
+import imgso from "./../../assets/Sign-out.png";
 
 class Nav extends React.Component {
 
@@ -42,13 +42,18 @@ class Nav extends React.Component {
 
 
             <Button color="inherit" className="btnNav">
-              <Link to="/create" className="btnin">
-                Create Place
+              <Link to="/Recommendations" className="btnin">
+                Recomendaciones
               </Link>
             </Button>
             <Button color="inherit" className="btnNav">
               <Link to="/user" className="btnin">
-                Crear User
+                Participar
+              </Link>
+            </Button>
+            <Button color="inherit" className="btnNav">
+              <Link to="/create" className="btnin">
+                Opinar
               </Link>
             </Button>
             <Button color="inherit" className="btnNav">
@@ -70,6 +75,7 @@ class Nav extends React.Component {
             <Button color="inherit" className="btnNav" onClick={this.onLogoutClick}>
               <Link to="/logout" className="btnin" >
                 Salir
+                <img src={imgso} className="s-o-img"/>
               </Link>
             </Button>
           </Toolbar>

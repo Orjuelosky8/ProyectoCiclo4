@@ -1,10 +1,18 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Redirect, Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
-import classnames from "classnames";
+import signupimg from "./../../assets/Sign-up.png";
 import "./logform.css";
+
+// const valid = () => {
+//   if(errors.email){
+//     valid="inputs form-control is-unvalid";
+//   } else{
+//     valid="inputs form-control is-valid";
+//   };
+// }
 
 class Registrar extends Component {
   constructor() {
@@ -15,6 +23,7 @@ class Registrar extends Component {
       password: "",
       password2: "",
       errors: {},
+      valid: "",
     };
   }
 
@@ -26,6 +35,10 @@ class Registrar extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log(nextProps.errors +"ENTRA")
+    // if (nextProps.auth.isAuthenticated) {
+    //   this.props.history.push("/ingresar");
+    // }
     if (nextProps.errors) {
       this.setState({
         errors: nextProps.errors,
@@ -49,23 +62,44 @@ class Registrar extends Component {
 
     this.props.registerUser(newUser, this.props.history);
   };
-
+/*
+  valid() {
+    if(this.state.errors.email){
+      this.setState({ 
+        valid: "inputs form-control is-unvalid"
+      });
+    } else{
+      this.setState({
+        valid: "inputs form-control is-valid"
+      });
+    };
+  }*/
+  
   render() {
     const { errors } = this.state;
-
+    
   return (
   <div className="container">
       <div className="row container-logs">
         <div className="col s8 offset-s2 container-logss">
-          <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-            <h4>
-              <b>Registrarse</b> a continuación...
-            </h4>
-            <p className="grey-text text-darken-1">
-              Tiene una cuenta? <Link to="/ingresar">Ingresar</Link>
-            </p>
-          </div>
           <form noValidate onSubmit={this.onSubmit}>
+          <div className="col s12 first-div">
+            <div className="welcome">
+                <h2>
+                  !VAMOS A REGISTRARNOS! 
+                </h2>
+                <p>
+                  ! Ya estas a unos pocos pasos de ingresar ¡ <br/>
+                  Luego de registrarte aqui con tu nombre, correo electronico y contraseña, podrás loguearte cuando quieras para poder ingresar a todo y empezar 
+                  con la diversión para escoger sabiamente tu proximo destino. <br/>! Desde DTLM esperamos tengas una buena experiencia con nosotros ¡
+                </p>
+                <hr/>
+                <img className="imgsu" src={signupimg}/>
+                <h4>
+                  <b>Registrese</b> a continuación :
+                </h4>
+              </div>
+          </div>
             <div className="input-field col s12">
               <input
                 onChange={this.onChange}
@@ -73,12 +107,13 @@ class Registrar extends Component {
                 error={errors.name}
                 id="name"
                 type="text"
-                className={classnames("", {
-                  invalid: errors.name,
-                })}
+                className="inputs form-control"
+                // className={classnames("", {
+                //   invalid: errors.name,
+                // })}
+                placeholder="Nombre"
               />
-              <label htmlFor="name">Nombre</label>
-              <span className="red-text">{errors.name}</span>
+              <span className="text-danger invalid">{errors.name}</span>
             </div>
             <div className="input-field col s12">
               <input
@@ -87,26 +122,29 @@ class Registrar extends Component {
                 error={errors.email}
                 id="email"
                 type="email"
-                className={classnames("", {
-                  invalid: errors.email,
-                })}
+                placeholder="Email"
+                className = "inputs form-control"
+                // className={classnames("", {
+                //   invalid: errors.email,
+                // })}
+                // className = {this.state.valid}
               />
-              <label htmlFor="email">Email</label>
-              <span className="red-text">{errors.email}</span>
+              <span className="text-danger invalid">{errors.email}</span>
             </div>
-            <div className="input-field col s12">
+            <div className="input-field s12">
               <input
                 onChange={this.onChange}
                 value={this.state.password}
                 error={errors.password}
                 id="password"
                 type="password"
-                className={classnames("", {
-                  invalid: errors.password,
-                })}
+                className="inputs form-control"
+                // className={classnames("", {
+                //   invalid: errors.password,
+                // })}
+                placeholder="Contraseña"
               />
-              <label htmlFor="password">Contraseña</label>
-              <span className="red-text">{errors.password}</span>
+              <span className="text-danger invalid">{errors.password}</span>
             </div>
             <div className="input-field col s12">
               <input
@@ -115,14 +153,20 @@ class Registrar extends Component {
                 error={errors.password2}
                 id="password2"
                 type="password"
-                className={classnames("", {
-                  invalid: errors.password2,
-                })}
+                className="inputs form-control"
+                // className={classnames("", {
+                //   invalid: errors.password2,
+                // })}
+                placeholder="Confirmar Contraseña"
               />
-              <label htmlFor="password2">Confirmar contraseña</label>
-              <span className="red-text">{errors.password2}</span>
+              <span className="text-danger invalid">{errors.password2}</span>
             </div>
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+            <div>
+              <p className="text-secondary change-option">
+                ¿Ya tiene una cuenta?, puedes ingresar en esta pestaña →  <Link to="/ingresar" className="another-option">Ingresar</Link>
+              </p>
+            </div>
+            <div className="col s12 container-btn" style={{ paddingLeft: "11.250px" }}>
               <button
                 style={{
                   width: "150px",
@@ -131,7 +175,7 @@ class Registrar extends Component {
                   marginTop: "1rem",
                 }}
                 type="submit"
-                className="btn btn-large waves-effect waves-light hoverable blue accent-3 btn-bluee"
+                className="btn btn-large waves-effect waves-light hoverable blue accent-3 btn-registro"
               >
                 Registrar
               </button>

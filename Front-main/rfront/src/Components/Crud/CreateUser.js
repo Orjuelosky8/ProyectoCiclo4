@@ -48,19 +48,23 @@ export default class CreateUser extends Component {
       <div className="row container-p">
         <div className="col-md-4">
           <div className="card card-body">
-            <h3>Crear usuario</h3>
+            <h4 className="title">A continuación Guarde su nombre para registrarlo como colaborador y asi poder agregar sus opiniones :D</h4>
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
                 <input
-                  className="form-control"
+                  className="form-control for-type"
                   value={this.state.username}
                   type="text"
+                  maxlength="30"
+                  placeholder="Username"
                   onChange={this.onChangeUsername}
                 />
               </div>
-              <button type="submit" className="btn btn-primary" /*onSubmit={<Link to="/places"/>}*/>
-                Guardar
-              </button>
+              <div className="div-save-btn">
+                <button type="submit" className="btn btn-primary" /*onSubmit={<Link to="/places"/>}*/>
+                  Guardar
+                </button>
+              </div>
             </form>
           </div>
         </div>

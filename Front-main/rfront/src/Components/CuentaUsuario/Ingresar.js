@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
-import classnames from "classnames";
+import loginimg from "./../../assets/Sign-in.png";
 import "./logform.css";
 
 class Login extends Component {
@@ -16,6 +16,7 @@ class Login extends Component {
     };
   }
 
+  
   componentDidMount() {
     // If logged in and user navigates to Login page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
@@ -27,43 +28,53 @@ class Login extends Component {
     if (nextProps.auth.isAuthenticated) {
       this.props.history.push("/Inicio");
     }
-
+    
     if (nextProps.errors) {
       this.setState({
         errors: nextProps.errors,
       });
     }
   }
-
+  
   onChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
   };
-
+  
   onSubmit = (e) => {
     e.preventDefault();
-
+    
     const userData = {
       email: this.state.email,
       password: this.state.password,
     };  
-
+    
     this.props.loginUser(userData);
   };
 
+  
   render() {
     const { errors } = this.state;
 
     return (
-      <div className="container container-logs">
-        <div style={{ marginTop: "4rem" }} className="row">
+      <div className="container">
+        <div style={{ marginTop: "4rem" }} className="row container-logs">
           <div className="col s8 offset-s2">
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
-                <b>Acceder</b> a continuación...
-              </h4>
-              <p className="grey-text text-darken-1">
-                No tiene una cuenta? <Link to="/registrar">Registrar</Link>
-              </p>
+            <div className="col s12 first-div">
+              <div className="welcome">
+                <h2>
+                  !BIENVENIDO! 
+                </h2>
+                <p>
+                  Esto es Descubre Tu Lugar Magico (DTLM); Aquí podrás encontrar informacion, recomendaciones y 
+                  comentarios para tomar unas mejores decisiones a la hora que vayas a viajar, logueate par empezar 
+                  con la diversión. <br/>! Buena suerte encontrando tu proximo destino ideal ¡
+                </p>
+                <hr/>
+                <img src={loginimg}/>
+                <h4>
+                  <b>Acceda</b> a continuación:
+                </h4>
+              </div>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
               <div className="input-field col s12">
@@ -73,12 +84,14 @@ class Login extends Component {
                   error={errors.email}
                   id="email"
                   type="email"
-                  className={classnames("", {
-                    invalid: errors.email || errors.emailnotfound,
-                  })}
+                  placeholder="Email"
+                  className="inputs form-control"
+                  // className={classnames("", {
+                  //   invalid: errors.email || errors.emailnotfound,
+                  // })}
                 />
-                <label htmlFor="email">Email</label>
-                <span className="red-text">
+                {/* <label htmlFor="email">Email</label> */}
+                <span className="text-danger invalid">
                   {errors.email}
                   {errors.emailnotfound}
                 </span>
@@ -89,18 +102,24 @@ class Login extends Component {
                   value={this.state.password}
                   error={errors.password}
                   id="password"
-                  type="password"
-                  className={classnames("", {
-                    invalid: errors.password || errors.passwordincorrect,
-                  })}
+                  type='password'
+                  placeholder="Contraseña"
+                  className="inputs form-control"
+                  // className={classnames("", {
+                  //   invalid: errors.password || errors.passwordincorrect,
+                  // })}
                 />
-                <label htmlFor="password">Contraseña</label>
-                <span className="red-text">
+                <span className="text-danger invalid">
                   {errors.password}
                   {errors.passwordincorrect}
                 </span>
               </div>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+              <div className="div-change-option">
+                <p className="text-secondary change-option">
+                  ¿Aún no tienes una cuenta?, creála ahora mismo → <Link to="/registrar" className="another-option">Registrar</Link>
+                </p>
+              </div>
+              <div className="col s12 container-btn" style={{ paddingLeft: "11.250px" }}>
                 <button
                   style={{
                     width: "150px",
@@ -109,7 +128,7 @@ class Login extends Component {
                     marginTop: "1rem",
                   }}
                   type="submit"
-                  className="btn btn-bluee btn-large waves-effect waves-light hoverable blue accent-3"
+                  className="btn btn-login btn-large waves-effect waves-light hoverable blue accent-3"
                 >
                   Acceder
                 </button>

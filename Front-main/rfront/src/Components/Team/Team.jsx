@@ -26,9 +26,11 @@ export default function Proveedores() {
         <p><span className="subt-3">Telefono: </span><span className="numbers">3112331665</span></p>
         <p><span className="subt-3">Correo Electronico: </span><span className="numbers">daniel.orju8@gmail.com</span></p>
         <p className="team-info__text">
-            Estudiante de Ingeniería de Sistemas.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quisquam illo ratione dicta obcaecati. Vero voluptate exercitationem harum, 
+            eius repudiandae nesciunt quod molestiae temporibus, enim porro dolore accusamus suscipit. Consectetur!
+            {/* Estudiante de Ingeniería de Sistemas.
             Cuenta con un conocimiento amplio en el idioma ingles (B2 certificado), y posee 
-            un certificado de aprobacion verificado del curso "Protección de Datos personales en la era digital." 
+            un certificado de aprobacion verificado del curso "Protección de Datos personales en la era digital."  */}
         </p>
     </div>
 

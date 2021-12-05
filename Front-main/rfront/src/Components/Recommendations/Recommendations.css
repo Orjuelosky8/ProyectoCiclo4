@@ -1,0 +1,43 @@
+.Recomendations{
+    margin-top: 100px;
+    margin-bottom: 80px;
+    margin-left: 40px;
+    margin-right: 10px;
+}
+
+.Recomendations-Na{
+    margin-top: 60px;
+}
+
+.Introductions h2{
+    text-align: center;
+    font-family: cursive;
+    font-weight: bold;
+    padding-bottom: 10px;
+
+}
+
+.Recomendations-In .Introductions h2{
+    color: orangered;
+    border-top: 2px dashed rgb(0, 183, 255);
+    border-left: 2px dashed rgb(0, 183, 255);
+}
+
+.Recomendations-Na .Introductions h2{
+    color: rgb(0, 183, 255);
+    border-right: 2px dashed orangered;
+    border-bottom: 2px dashed orangered;
+}
+
+.Tarjeta{
+    margin-right: 30px;
+}
+
+.desc-places{
+    color: gray;
+}
+
+.updated{
+    text-align: right;
+    font-size: 11px;
+}

@@ -1,7 +1,7 @@
 import React, {Switch} from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ButtonAppBar from "./Components/Menu/Nav";
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
@@ -15,6 +15,7 @@ import Registrar from "./Components/CuentaUsuario/Registrar";
 import Ingresar from "./Components/CuentaUsuario/Ingresar";
 import Home from "./Components/Home/Home";
 import About from "./Components/About/About.jsx";
+import Recommendations from "./Components/Recommendations/Recomendaciones"
 import Mapa from "./Components/Mapa/Mapa.jsx";
 import VistaPerfil from "./Components/PerfilUsuario/pruebasmui";
 import Footer from "./Components/Menu/Footer.jsx";
@@ -23,7 +24,7 @@ import NavBar from "./Components/Menu/NavBar";
 import Explorar from "./Components/Explore/Explorar.jsx"
 import PagProveedor from "./Components/PaginaProveedor/PagProveedor";
 import PublicarNegocio from "./Components/PublicarNegocio/PublicarNegocio";
-import Navigation from './Components/Crud/Navigation'
+
 import NotesList from './Components/Crud/NotesList'
 import CreateNote from './Components/Crud/CreateNote'
 import CreateUser from './Components/Crud/CreateUser'
@@ -74,19 +75,19 @@ export default class App extends React.Component {
     this.props.this.state.logged = false;
   };*/
 
-  Login() {
-    return(
-      <Provider store={store}>
-        <Router>
-          {/* <Route path="*" exact component={Ingresar} onTryLogin = {this.updateState}/> */}
-          <Route path="/Registrar" exact component={Registrar}/>
-          <Route path="/Ingresar" exact component={Ingresar} onTryLogin = {this.updateState}/>
-          <Route path="/" exact component={Ingresar} onTryLogin = {this.updateState}/>
-          <Footer />
-        </Router>
-      </Provider>
-    );
-  }
+  // Login() {
+  //   return(
+  //     <Provider store={store}>
+  //       <Router>
+  //         {/* <Route path="*" exact component={Ingresar} onTryLogin = {this.updateState}/> */}
+  //         <Route path="/Registrar" exact component={Registrar}/>
+  //         <Route path="/Ingresar" exact component={Ingresar} onTryLogin = {this.updateState}/>
+  //         <Route path="/" exact component={Ingresar} onTryLogin = {this.updateState}/>
+  //         <Footer />
+  //       </Router>
+  //     </Provider>
+  //   );
+  // }
   
   App() {
     return (
@@ -94,18 +95,19 @@ export default class App extends React.Component {
         <Router>
           <Route path="/Ingresar" exact component={Ingresar} /*onClick={this.onLogoutClick} /*onTryLogin={this.setState({logged:true})}*/ />
           <Route path="/Registrar" exact component={Registrar}/>
-          <ButtonAppBar />
-          <Route path="/" exact component={Home} />
-          <Route path="/" exact component={Home} />
-          <Route path="/Inicio" exact component={Home} />
-          <Route path="/Team" exact component={Team} />
-          <Route path="/About" exact component={About} />
-          <Route path="/Explore" exact component={Explorar}/>
-          <Route path="/places" component={NotesList} />
-          <Route path="/edit/:id" component={CreateNote} />
-          <Route path="/create" component={CreateNote} />
-          <Route path="/user" component={CreateUser} />
-          <Route path="/logout" component={Ingresar} />
+          {/* ButtonAppBar<ButtonAppBar /> */}
+          <PrivateRoute path="*" exact component={ButtonAppBar} />
+          <PrivateRoute path="/" exact component={Home} />
+          <PrivateRoute path="/Inicio" exact component={Home} />
+          <PrivateRoute path="/Team" exact component={Team} />
+          <PrivateRoute path="/About" exact component={About} />
+          <PrivateRoute path="/Recommendations" exact component={Recommendations}/>
+          <PrivateRoute path="/Explore" exact component={Explorar}/>
+          <PrivateRoute path="/places" component={NotesList} />
+          <PrivateRoute path="/edit/:id" component={CreateNote} />
+          <PrivateRoute path="/create" component={CreateNote} />
+          <PrivateRoute path="/user" component={CreateUser} />
+          <PrivateRoute path="/logout" component={Ingresar} />
           <Footer />
         </Router>
       </Provider>
@@ -114,9 +116,9 @@ export default class App extends React.Component {
   
   render() {
     // if(this.state.logged === true){
-       //return this.App();
+       return this.App();
     // } else{
-        return this.App();
+       // return this.Login();
     // }
   }
 }

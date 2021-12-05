@@ -80,7 +80,7 @@ export default class CreateNote extends Component {
       <div className="col-md-6 offset-md-3">
         <div className="card card-body container-p">
           <h4>
-            Crear un plan<i class="fa fa-plane" aria-hidden="true"></i>
+            Registrar la opinion de un lugar que visito:<i class="fa fa-plane" aria-hidden="true"></i>
           </h4>
           <form onSubmit={this.onSubmit}>
             {/* SELECT THE USER */}
@@ -105,10 +105,11 @@ export default class CreateNote extends Component {
             <div className="form-group">
               <input
                 type="text"
-                className="form-control"
+                className="form-control for-type"
                 placeholder="Título"
                 onChange={this.onInputChange}
                 name="title"
+                maxlength="70"
                 value={this.state.title}
                 required
               />
@@ -123,9 +124,10 @@ export default class CreateNote extends Component {
             <div className="form-group">
               <textarea
                 type="text"
-                className="form-control"
+                className="form-control for-type"
                 placeholder="Descripción"
                 name="content"
+                maxlength="500"
                 onChange={this.onInputChange}
                 value={this.state.content}
                 required
@@ -139,9 +141,11 @@ export default class CreateNote extends Component {
                 onChange={this.onChangeDate}
               />
             </div> */}
-            <button className="btn btn-primary">
-              Guardar {/*<i className="material-icons">save</i>*/}
-            </button>
+            <div className="div-save-btn">
+              <button className="btn btn-primary save-btn">
+                Guardar {/*<i className="material-icons">save</i>*/}
+              </button>
+            </div>
           </form>
         </div>
       </div>
